@@ -1,4 +1,4 @@
-// Requirement 7
+// Requirement 7 Refactored
 
 var todoList = {
     todos: [],
@@ -58,15 +58,14 @@ var todoList = {
     }
 };
 
-// We want to get access to the "displayTodos" and "toggleAll" buttons
-var displayTodosButton = document.getElementById('displayTodosButton')
-var toggleAllButton = document.getElementById('toggleAllButton');
+// Refactored Code 
 
-// We want to run displayTodos method when button is clicked 
-displayTodosButton.addEventListener('click', function() {
-    todoList.displayTodos();
-});
-
-toggleAllButton.addEventListener('click', function(){
-    todoList.toggleAll();
-});
+// Added variable handlers that are utilized by onclick
+var handlers = {
+    displayTodos: function() {
+        todoList.displayTodos();
+    },
+    toggleAll: function() {
+        todoList.toggleAll();
+    }
+}
