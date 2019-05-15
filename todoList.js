@@ -1,4 +1,4 @@
-// Requirement 7 Refactored
+// Requirement 8
 
 var todoList = {
     todos: [],
@@ -58,14 +58,32 @@ var todoList = {
     }
 };
 
-// Refactored Code 
-
-// Added variable handlers that are utilized by onclick
 var handlers = {
     displayTodos: function() {
         todoList.displayTodos();
     },
     toggleAll: function() {
         todoList.toggleAll();
+    },
+    // It should have working controls for .addTodo
+    addTodo: function() {
+        var addTodoTextInput = document.getElementById('addTodoTextInput');
+        todoList.addTodo(addTodoTextInput.value);
+    },
+    // It should have working controls for .changeTodo
+    changeTodo: function() {
+        var changeTodoNumberInput = document.getElementById('changeTodoNumberInput');
+        var changeTodoTextInput = document.getElementById('changeTodoTextInput');
+        todoList.changeTodo(changeTodoNumberInput.value, changeTodoTextInput.value);
+    },
+    // It should have working controls for .deleteTodo
+    deleteTodo: function() {
+        var deleteTodoNumberInput = document.getElementById('deleteTodoNumberInput');
+        todoList.deleteTodo(deleteTodoNumberInput.value);
+    },
+    // It should have working controls for .toggleCompleted
+    toggleCompleted: function() {
+        var toggleCompletedNumberInput = document.getElementById('toggleCompletedNumberInput');        
+        todoList.toggleCompleted(toggleCompletedNumberInput.value);
     }
-}
+};
