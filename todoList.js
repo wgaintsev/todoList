@@ -1,4 +1,4 @@
-// Requirement 6
+// Requirement 7
 
 var todoList = {
     todos: [],
@@ -45,11 +45,11 @@ var todoList = {
                 completedTodos++                            
             } 
         }
-        if (totalTodos === completedTodos) {                // .toggleAll: If everything's true, make everything false.
+        if (totalTodos === completedTodos) {                
             for (var i = 0; i < this.todos.length; i++) {
                 this.todos[i].completed = false
             }
-        } else {                                            // .toggleAll: Otherwise, make everything true.
+        } else {                                            
             for (var i = 0; i < this.todos.length; i++) {
                 this.todos[i].completed = true;
             }
@@ -57,3 +57,16 @@ var todoList = {
         this.displayTodos();
     }
 };
+
+// We want to get access to the "displayTodos" and "toggleAll" buttons
+var displayTodosButton = document.getElementById('displayTodosButton')
+var toggleAllButton = document.getElementById('toggleAllButton');
+
+// We want to run displayTodos method when button is clicked 
+displayTodosButton.addEventListener('click', function() {
+    todoList.displayTodos();
+});
+
+toggleAllButton.addEventListener('click', function(){
+    todoList.toggleAll();
+});
