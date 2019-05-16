@@ -1,4 +1,4 @@
-// Requirement 8
+// Requirement 9
 
 var todoList = {
     todos: [],
@@ -87,3 +87,21 @@ var handlers = {
         todoList.toggleCompleted(toggleCompletedNumberInput.value);
     }
 };
+
+var view = {
+    displayTodos: function() {
+        var todoUl = document.querySelector('ul');        
+        todoUl.innerHTML = "";
+        for(var i = 0; i < todoList.todos.length; i++) {    
+            var todoLi = document.createElement('li');                      // There should be an li element for every todo
+
+            if(todoList.todos[i].completed === false) {
+                todoLi.textContent = "( ) " + todoList.todos[i].todoText;   // Each li element should contain .todoText
+            } else {
+                todoLi.textContent = "(x) " + todoList.todos[i].todoText;   // Each li element should show .completed
+            }
+            
+            todoUl.appendChild(todoLi);                       
+        }
+    }
+}
