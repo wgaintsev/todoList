@@ -1,4 +1,4 @@
-// Requirement 9
+// Requirement 9 Refactored
 
 var todoList = {
     todos: [],
@@ -88,20 +88,25 @@ var handlers = {
     }
 };
 
+// Refactored Code
+
 var view = {
     displayTodos: function() {
-        var todoUl = document.querySelector('ul');        
+        var todoUl = document.querySelector('ul');      
         todoUl.innerHTML = "";
         for(var i = 0; i < todoList.todos.length; i++) {    
-            var todoLi = document.createElement('li');                      // There should be an li element for every todo
-
-            if(todoList.todos[i].completed === false) {
-                todoLi.textContent = "( ) " + todoList.todos[i].todoText;   // Each li element should contain .todoText
-            } else {
-                todoLi.textContent = "(x) " + todoList.todos[i].todoText;   // Each li element should show .completed
-            }
+            var todoLi = document.createElement('li');          
+            var todo = todoList.todos[i];                           // Created variable to clean up code
+            var todoTextWithCompletion = ""                         // Created variable for completed marked + todoText
             
-            todoUl.appendChild(todoLi);                       
+            if(todo.completed === false) {
+                todoTextWithCompletion = "( ) " + todo.todoText;
+            } else {
+                todoTextWithCompletion = "(x) " + todo.todoText;
+            }
+
+            todoLi.textContent = todoTextWithCompletion             // Assigned withCompletion to textContent 
+            todoUl.appendChild(todoLi);                     
         }
     }
-}
+};
